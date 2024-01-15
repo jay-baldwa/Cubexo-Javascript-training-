@@ -1,5 +1,5 @@
 
-//Develop a simple interactive quiz that asks and checks the user's responses about data types.
+//Use objects to create a simple quiz game that scores players and displays scores at the end.
 
 let name = prompt("Enter your name ")
 
@@ -10,13 +10,17 @@ if (name) {
 const quizQuestions = [
     'Is null and undefined same?\n Options: 1- yes, 2- no',
     'what is the datatype of 9?\n Options: 1- string, 2- number, 3- object, 4-null',
-    'is == and === equal?\n Options: 1- yes, 2- no'
+    'is == and === equal?\n Options: 1- yes, 2- no',
+    `Which of the following is not a valid JavaScript variable name?\n Options: 1- myVariable1, 2- $variable1, 3- 3variable1, 4- _variable`,
+    `Is javascript an interpreted language?\n Options: 1- yes, 2- no`
 ];
 
 const correctAnswers = [
     'no',
     'number',
-    'no'
+    'no',
+    `3variable1`,
+    `yes`
 ];
 
 function getUserAns() {
