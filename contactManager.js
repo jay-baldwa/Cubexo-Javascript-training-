@@ -8,7 +8,7 @@ function displayContact() {
     if (contactList.length === 0) {
         content.innerText = 'Contact List is empty!';
     } else {
-        let contactC = 'Contacts to be completed:';
+        let contactC = 'All the contents are:';
         for (let i = 0; i < contactList.length; i++) {
             contactC += `\n* ${contactList[i]}`;
         }
@@ -22,7 +22,7 @@ function addContact() {
 
     const newContact = prompt('Enter the new Contact:\n');
     if (newContact) {
-        contactList.push(newContact);
+        contactList.push(newContact);   // will push the added contact to the array of contacts
         displayContact();
     }
 }
@@ -36,14 +36,20 @@ function removeContact() {
         return;
     }
 
-    const ContactNumber = Number(prompt("Enter the number of Contact you want to remove:"));
-    if (ContactNumber < 1 || ContactNumber > contactList.length || isNaN(ContactNumber)) {
-        removeContent.innerText = 'Invalid! Contact does not exist.';
-        return;
+
+    // will take the name of the contact to be removed as imput from the user
+    const contactName = prompt("Enter the name of Contact you want to remove:");
+
+    // this loop will check the name entered with the contacts in the array and if matched, will remove the contact
+    for (let i = 0; i < contactList.length; i++) {
+
+        if (contactName === contactList[i]) {
+            contactList.splice(i, 1);
+        }
+
     }
 
-    const removedContact = contactList.splice(ContactNumber - 1, 1);
-    removeContent.innerText = `${removedContact} removed successfully!`;
+    removeContent.innerText = `Contact removed successfully!`;
     displayContact();
 }
 
